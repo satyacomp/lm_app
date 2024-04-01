@@ -16,21 +16,26 @@ Including another URLconf
 """
 
 from django.contrib import admin
-from django.urls import path
-from web_site.views import RolesApiView
-from web_site import views
+from django.urls import path, include
+
+# from web_site.views import RolesApiView, UsersApiView
+# from web_site import views
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    # Login and signup urls
-    path("", views.index),
-    path("web_site/signup", views.signup),
-    # CRUD urls for roles
-    path("web_site/roles", RolesApiView.as_view()),
-    path("web_site/role/<int:id>", RolesApiView.as_view()),
-    path("web_site/role/add", RolesApiView.as_view()),
-    path("web_site/role/update/<int:id>", RolesApiView.as_view()),
-    path("web_site/role/delete/<int:id>", RolesApiView.as_view()),
+    path("", include("users.urls")),
+    path("loans/", include("loans.urls")),
+    path("payments/", include("payments.urls")),
+    # # Login and signup urls
+    # path("", views.index),
+    # path("web_site/signup", views.signup),
+    # path("web_site/login", UsersApiView.as_view()),
+    # # CRUD urls for roles
+    # path("web_site/roles", RolesApiView.as_view()),
+    # path("web_site/role/<int:id>", RolesApiView.as_view()),
+    # path("web_site/role/add", RolesApiView.as_view()),
+    # path("web_site/role/update/<int:id>", RolesApiView.as_view()),
+    # path("web_site/role/delete/<int:id>", RolesApiView.as_view()),
     # CRUD urls for borrowers
     # CRUD urls for user_activity_log
     # CRUD urls for loan_applications

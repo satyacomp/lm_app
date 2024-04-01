@@ -38,8 +38,11 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "web_site",
     "rest_framework",
+    # "web_site",
+    "loans",
+    "payments",
+    "users",
 ]
 
 REST_FRAMEWORK = {
@@ -69,7 +72,10 @@ STATIC_ROOT = os.path.join(PROJECT_PATH, "static/")
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [os.path.join(PROJECT_PATH, "templates/")],
+        "DIRS": [
+            PROJECT_PATH + "/templates",
+            PROJECT_PATH + "/users/templates",
+        ],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
