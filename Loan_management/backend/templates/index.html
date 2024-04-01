@@ -5,7 +5,11 @@
   </head>
   <body>
     <header>{%include "header.html"%}</header>
-    <login>{%include "login.html"%}</login>
+    {% if uname%}
+      <h2>Hi welcome {{uname}}</h2>
+    {% else %}
+      <login>{%include "login.html"%}</login>
+    {% endif %}
     <footer>{%include "footer.html"%}</footer>
   </body>
 </html>

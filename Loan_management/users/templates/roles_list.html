@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="card-body">
+    <h4>Roles List</h4>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Role</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for role in roles %}
+            <tr>
+                <td>{{ role.id }}</td>
+                <td>{{ role.role_name }}</td>
+                <td><a type="button" class="btn btn-warning" href="/role_update/{{ role.id }}">Update</a>
+                    <a type="button" class="btn btn-danger" href="/role_delete/{{ role.id }}">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a type="button" class="btn btn-success small" href="{%url 'role_create' %}">Create</a>
+</div>
+{% endblock %}
