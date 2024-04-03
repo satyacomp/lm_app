@@ -6,12 +6,15 @@ class Roles(models.Model):
     id = models.AutoField(primary_key=True)
     role_name = models.CharField(max_length=255, null=False)
 
+    def __str__(self) -> str:
+        return self.role_name
+
 
 class Users(models.Model):
     id = models.AutoField(primary_key=True)
     username = models.CharField(max_length=100, unique=True)
     password = models.CharField(max_length=100, null=False)
-    role_id = models.ForeignKey("Roles", on_delete=models.CASCADE)
+    role_id = models.ForeignKey("Roles", on_delete=models.CASCADE, default=5)
     is_approved = models.BooleanField(default=False)
 
 

@@ -6,9 +6,9 @@
   <body>
     <header>{%include "header.html"%}</header>
     {% if uname%}
-      <h2>Hi welcome {{uname}}</h2>
+      <center><h2>Hi, Welcome {{uname}}</h2></center>
     {% else %}
-      <login>{%include "login.html"%}</login>
+      <center><h2>Hi, User. Please login!</h2></center>
     {% endif %}
     <footer>{%include "footer.html"%}</footer>
   </body>
